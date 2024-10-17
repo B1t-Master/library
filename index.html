@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="script.js" defer></script>
+    <link rel="stylesheet" href="style.css" />
+    <title>Document</title>
+  </head>
+  <body>
+    <section class="header">
+      <div class="logo"><img src="/images/logo.png" alt="" /></div>
+      <div class="website-name">AniTrack</div>
+    </section>
+    <section class="nav-bar">
+      <button class="add-anime">Add Anime</button>
+    </section>
+    <section class="collection">
+      <div class="cards">
+        <div class="name">Jujutsu-Kaisen</div>
+        <div>
+          <div>Number of episode :</div>
+          <div class="episodes">48</div>
+        </div>
+        <legend>Watch Status</legend>
+
+        <fieldset class="status">
+          <div>
+            <label for="skipped">Skipped</label>
+            <input type="radio" name="status" id="skipped" />
+          </div>
+          <div>
+            <label for="watched">Watched</label>
+            <input type="radio" name="status" id="watched" />
+          </div>
+        </fieldset>
+        <button class="remove">Remove</button>
+      </div>
+    </section>
+    <section class="footer">
+      <div>
+        Made by
+        <a href="https://github.com/B1t-Master" rel="noopener" target="_blank"
+          >Bit-Master</a
+        >
+      </div>
+    </section>
+    <dialog>
+      <form action="" method="dialog">
+        <label for="name">Anime Name?</label>
+        <input
+          required
+          class="modal"
+          type="text"
+          id="name"
+          placeholder="Jujutsu-Kaisen"
+          name="anime-name"
+        />
+        <label for="episodes">Number of Episodes?</label>
+        <input
+          required
+          type="number"
+          id="episodes"
+          min="0"
+          class="episodes modal"
+          placeholder="48"
+          name="anime-name"
+        />
+        <div>Watched or skipped?</div>
+        <fieldset class="status modal-status">
+          <div>
+            <label for="skipped">Skipped</label>
+            <input type="radio" name="status" id="skipped" />
+          </div>
+          <div>
+            <label for="watched" class="watched">Watched</label>
+            <input type="radio" name="status" id="watched" />
+          </div>
+        </fieldset>
+        <button class="dialog-add close" type="submit">Add</button>
+      </form>
+    </dialog>
+  </body>
+</html>

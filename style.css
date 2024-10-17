@@ -1,0 +1,202 @@
+@font-face {
+  font-family: kanji;
+  src: url(fonts/Qetod.ttf) format("truetype");
+}
+
+@font-face {
+  font-family: numbers;
+  src: url(fonts/KiwiMaru-Light.ttf) format("truetype");
+}
+
+* {
+  font-family: kanji, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+    Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  max-height: 100%;
+  color: black;
+  --cardColor: #564a94;
+  --backgroundColor: white;
+  --cta: #c7383c;
+}
+
+body {
+  height: 100vh;
+  display: grid;
+  grid-template-rows: 0.8fr 0.5fr 4fr 0.5fr;
+  background-color: var(--backgroundColor);
+}
+
+.header {
+  display: flex;
+  gap: 1.5rem;
+  padding-left: 4rem;
+  padding-right: 4rem;
+  padding-top: 2rem;
+  box-shadow: rgba(0, 0, 0, 0.45) 0px 25px 20px -20px;
+}
+
+.nav-bar {
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  margin-top: 48px;
+}
+
+button {
+  width: 20rem;
+  height: 2.5rem;
+  background-color: var(--cta);
+  border: 1px solid rgba(27, 31, 35, 0.15);
+  border-radius: 8px;
+  font-size: 2rem;
+  font-weight: 600;
+  line-height: 20px;
+  text-decoration: none;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px,
+    rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
+}
+
+.remove {
+  font-size: 1rem;
+  width: 5.5rem;
+  height: 2.5rem;
+}
+
+.footer {
+  align-self: center;
+  justify-self: center;
+}
+
+a:any-link {
+  list-style: none;
+  color: black;
+}
+
+button:hover {
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset,
+    rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
+}
+
+.logo {
+  width: 3.5rem;
+  height: 3.5rem;
+}
+
+.website-name {
+  font-size: 3em;
+  margin-left: auto;
+}
+
+.cards {
+  background-color: var(--cardColor);
+  height: 300px;
+  border-radius: 8px;
+  font-size: 2rem;
+  box-shadow: rgba(0, 0, 0, 0.56) 0px 22px 70px 4px;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.episodes {
+  font-family: numbers;
+  font-size: 2rem;
+  font-weight: 500;
+}
+
+input {
+  border: 0px;
+  width: 100%;
+  height: 1.5em;
+  accent-color: var(--cta);
+}
+
+.name,
+legend,
+button {
+  align-self: center;
+}
+
+.name ~ div {
+  display: flex;
+  gap: 0.2rem;
+}
+
+.status {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr;
+  margin-bottom: 8px;
+  appearance: none;
+  border: none;
+  align-items: center;
+  text-align: center;
+  font-size: 0.8em;
+}
+
+.collection {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 300px));
+  margin: 4rem;
+}
+
+dialog[open] {
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+  position: absolute;
+  width: 25%;
+  height: 50%;
+  background: #eee;
+  display: flex;
+  flex-direction: column;
+  appearance: none;
+  justify-content: center;
+  border-radius: 16px;
+  border: none;
+  background-color: white;
+  box-shadow: rgba(0, 0, 0, 0.56) 0px 22px 70px 4px;
+  gap: 16px;
+  padding: 2rem;
+}
+
+.close {
+  width: 4em;
+  height: 1.5em;
+}
+
+dialog::backdrop {
+  background-color: grey;
+  opacity: 0.5;
+}
+
+form {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+dialog > form > label,
+dialog > form > div {
+  font-size: 2rem;
+}
+
+.modal {
+  height: 2rem;
+}
+
+.modal:focus {
+  appearance: none;
+  outline: none;
+  border: 1px solid #c7383c;
+  border-radius: 8px;
+}
+
+form > input {
+  font-size: 1.5rem;
+}
