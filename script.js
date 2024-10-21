@@ -67,11 +67,14 @@ function displayAnime() {
     card.appendChild(legend);
     card.appendChild(div4);
     card.appendChild(button);
-    return collection.appendChild(card);
+    collection.appendChild(card);
   }
 }
 
 const Rezero = new Anime("Re-zero", 96, "watched");
 
+const Relife = new Anime("Re-Life", 50, "watched");
+
 addToLibrary(Rezero);
+addToLibrary(Relife);
 displayAnime();
