@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <script src="script.js" defer></script>
     <link rel="stylesheet" href="style.css" />
-    <title>Document</title>
+    <title>AniTrack</title>
   </head>
   <body>
     <section class="header">
@@ -17,23 +17,19 @@
     </section>
     <section class="collection">
       <div class="cards">
+        <div>
+          <img src="images/ninja-blade.png" width="40em" height="40em" alt="" />
+        </div>
         <div class="name">Jujutsu-Kaisen</div>
         <div>
-          <div>Number of episode :</div>
+          <div>No. of Episodes:</div>
           <div class="episodes">48</div>
         </div>
-        <legend>Watch Status</legend>
-
-        <fieldset class="status">
-          <div>
-            <label for="skipped">Skipped</label>
-            <input type="radio" name="status" id="skipped" />
-          </div>
-          <div>
-            <label for="watched">Watched</label>
-            <input type="radio" name="status" id="watched" />
-          </div>
-        </fieldset>
+        <legend>Watch Status:</legend>
+        <div class="status">
+          <label for="watched">Watched</label>
+          <input type="checkbox" name="status" id="watched" />
+        </div>
         <button class="remove">Remove</button>
       </div>
     </section>
@@ -46,7 +42,7 @@
       </div>
     </section>
     <dialog>
-      <form action="" method="dialog">
+      <form action="" method="post">
         <label for="name">Anime Name?</label>
         <input
           required
@@ -66,18 +62,15 @@
           placeholder="48"
           name="anime-name"
         />
-        <div>Watched or skipped?</div>
+        <div>Watched?</div>
         <fieldset class="status modal-status">
           <div>
-            <label for="skipped">Skipped</label>
-            <input type="radio" name="status" id="skipped" />
-          </div>
-          <div>
             <label for="watched" class="watched">Watched</label>
-            <input type="radio" name="status" id="watched" />
+            <input type="checkbox" name="status" id="watched" />
           </div>
         </fieldset>
-        <button class="dialog-add close" type="submit">Add</button>
+        <button class="dialog-add close" type="dialog">Create</button>
+        <button class="close">Close</button>
       </form>
     </dialog>
   </body>

@@ -98,6 +98,7 @@ button:hover {
   padding: 1rem;
   display: flex;
   flex-direction: column;
+  /* gap: 4rem; */
 }
 
 .episodes {
@@ -125,13 +126,12 @@ button {
 }
 
 .status {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-template-rows: 1fr;
+  display: flex;
   margin-bottom: 8px;
   appearance: none;
   border: none;
   align-items: center;
+  justify-content: center;
   text-align: center;
   font-size: 0.8em;
 }
@@ -140,6 +140,7 @@ button {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(200px, 300px));
   margin: 4rem;
+  gap: 4rem;
 }
 
 dialog[open] {
@@ -164,7 +165,8 @@ dialog[open] {
   padding: 2rem;
 }
 
-.close {
+.close,
+.dialog-add {
   width: 4em;
   height: 1.5em;
 }
