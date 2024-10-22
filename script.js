@@ -6,8 +6,6 @@ const create = document.querySelector(".dialog-add");
 const nameInput = document.querySelector("#name");
 const episodeInput = document.querySelector("#episodes");
 const watchStatus = document.getElementById("form-checkbox");
-// let removeButton = document.querySelectorAll(".remove");
-// let changeStatus = document.querySelectorAll(".watch-status");
 let id = 0;
 
 add.addEventListener("click", () => {
@@ -24,23 +22,6 @@ create.addEventListener("click", (e) => {
   );
   addToLibrary(anime);
   displayAnime();
-
-  // let changeStatus = document.querySelectorAll(".watch-status");
-  // changeStatus.forEach((item) => {
-  //   item.addEventListener("click", () => {
-  //     let fetchId = [];
-  //     fetchId = item.value.split("c");
-
-  //     console.log(fetchId);
-  //     if (item.textContent === "Watched") {
-  //       item.textContent = "Skipped";
-  //       myAnimes[fetchId[1]].status = false;
-  //     } else {
-  //       item.textContent = "Watched";
-  //       myAnimes[fetchId[1]].status = true;
-  //     }
-  //   });
-  // });
 
   nameInput.value = "";
   episodeInput.value = "";
@@ -68,6 +49,7 @@ function incrementId() {
 }
 
 function isWatched() {
+  let length = myAnimes.length - 1;
   if (myAnimes[length].status === true) {
     return "Watched";
   } else return "Skipped";
@@ -121,8 +103,28 @@ function displayAnime() {
   button.addEventListener("click", () => {
     let removable = document.querySelector(`#${button.id}`);
     removable.remove();
+    for (let i = 0; i < myAnimes.length; i++) {
+      let index;
+      if (myAnimes[i].id === button.id) {
+        return myAnimes.splice(i, 1);
+      }
+    }
+  });
+
+  watchButton.addEventListener("click", () => {
     // let fetchId = [];
-    // fetchId = button.id.split("c");
-    myAnimes.splice(myAnimes.id === button.id, 1);
+    // fetchId = watchButton.value.split("c");
+
+    // console.log(myAnimes[length].id);
+
+    if (watchButton.textContent === "Watched") {
+      watchButton.textContent = "Skipped";
+      myAnimes[
+        myAnimes.indexOf(watchButton.value === myAnimes.id)
+      ].status = false;
+    } else {
+      watchButton.textContent = "Watched";
+      myAnimes.indexOf(watchButton.value === myAnimes.id).status = true;
+    }
   });
 }
