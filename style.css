@@ -58,6 +58,12 @@ button {
     rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
 }
 
+.watch-status {
+  width: 10rem;
+  height: 2.5rem;
+  font-weight: 500;
+}
+
 .remove {
   font-size: 1rem;
   width: 5.5rem;
@@ -123,6 +129,7 @@ button {
 .name ~ div {
   display: flex;
   gap: 0.2rem;
+  justify-content: center;
 }
 
 .status {
@@ -163,7 +170,6 @@ dialog[open] {
   box-shadow: rgba(0, 0, 0, 0.56) 0px 22px 70px 4px;
   gap: 16px;
   padding: 2rem;
-  overflow: hidden;
 }
 
 .close,

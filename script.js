@@ -5,8 +5,9 @@ const collection = document.querySelector(".collection");
 const create = document.querySelector(".dialog-add");
 const nameInput = document.querySelector("#name");
 const episodeInput = document.querySelector("#episodes");
-const watchStatus = document.querySelector("#watched");
-let removeButton = document.querySelectorAll(".remove");
+const watchStatus = document.getElementById("form-checkbox");
+// let removeButton = document.querySelectorAll(".remove");
+// let changeStatus = document.querySelectorAll(".watch-status");
 let id = 0;
 
 add.addEventListener("click", () => {
@@ -23,16 +24,24 @@ create.addEventListener("click", (e) => {
   );
   addToLibrary(anime);
   displayAnime();
-  removeButton = document.querySelectorAll(".remove");
-  removeButton.forEach((item) => {
-    item.addEventListener("click", () => {
-      let removable = document.querySelector(`#${item.id}`);
-      removable.remove();
-      let fetchId = [];
-      fetchId = item.id.split("p");
-      myAnimes.splice(fetchId[1], 1);
-    });
-  });
+
+  // let changeStatus = document.querySelectorAll(".watch-status");
+  // changeStatus.forEach((item) => {
+  //   item.addEventListener("click", () => {
+  //     let fetchId = [];
+  //     fetchId = item.value.split("c");
+
+  //     console.log(fetchId);
+  //     if (item.textContent === "Watched") {
+  //       item.textContent = "Skipped";
+  //       myAnimes[fetchId[1]].status = false;
+  //     } else {
+  //       item.textContent = "Watched";
+  //       myAnimes[fetchId[1]].status = true;
+  //     }
+  //   });
+  // });
+
   nameInput.value = "";
   episodeInput.value = "";
 });
@@ -47,16 +56,21 @@ function Anime(name, episodes, status) {
   this.name = name;
   this.episodes = episodes;
   this.status = status;
-  this.id = "p" + incrementId();
+  this.id = "c" + incrementId();
 }
 
 function addToLibrary(anime) {
   myAnimes.push(anime);
-  // do stuff here
 }
 
 function incrementId() {
   return id++;
+}
+
+function isWatched() {
+  if (myAnimes[length].status === true) {
+    return "Watched";
+  } else return "Skipped";
 }
 
 function displayAnime() {
@@ -86,14 +100,11 @@ function displayAnime() {
   legend.textContent = "Watch Status:";
   let div4 = document.createElement("div");
   div4.classList.add("status");
-  let label = document.createElement("label");
-  label.setAttribute("for", "watched");
-  label.textContent = "Watched";
-  let input = document.createElement("input");
-  input.setAttribute("type", "checkbox");
-  input.setAttribute("id", "watched");
-  div4.appendChild(label);
-  div4.appendChild(input);
+  let watchButton = document.createElement("button");
+  watchButton.classList.add("watch-status");
+  watchButton.textContent = isWatched();
+  watchButton.value = myAnimes[length].id;
+  div4.appendChild(watchButton);
   let button = document.createElement("button");
   button.textContent = "Remove";
   button.value = myAnimes[length].id;
@@ -106,4 +117,12 @@ function displayAnime() {
   card.appendChild(div4);
   card.appendChild(button);
   collection.appendChild(card);
+
+  button.addEventListener("click", () => {
+    let removable = document.querySelector(`#${button.id}`);
+    removable.remove();
+    // let fetchId = [];
+    // fetchId = button.id.split("c");
+    myAnimes.splice(myAnimes.id === button.id, 1);
+  });
 }
