@@ -23,6 +23,16 @@ create.addEventListener("click", (e) => {
   );
   addToLibrary(anime);
   displayAnime();
+  removeButton = document.querySelectorAll(".remove");
+  removeButton.forEach((item) => {
+    item.addEventListener("click", () => {
+      let removable = document.querySelector(`#${item.id}`);
+      removable.remove();
+      let fetchId = [];
+      fetchId = item.id.split("p");
+      myAnimes.splice(fetchId[1], 1);
+    });
+  });
   nameInput.value = "";
   episodeInput.value = "";
 });
@@ -33,29 +43,15 @@ closeModal.addEventListener("click", () => {
 
 const myAnimes = [];
 
-// removeButton.forEach((item) => {
-//   item.addEventListener("click", () => {
-//     let serachValue = item.id;
-//     console.log(serachValue);
-//     // for (let item of myAnimes) {
-//     //   if (removeButton[i] === item.id) {
-//     //     let removable = document.querySelector(`.${i}`);
-//     //     removable.remove();
-//     //   } else return;
-//     // }
-//   });
-// });
-
 function Anime(name, episodes, status) {
   this.name = name;
   this.episodes = episodes;
   this.status = status;
-  this.id = incrementId();
+  this.id = "p" + incrementId();
 }
 
 function addToLibrary(anime) {
   myAnimes.push(anime);
-  removeButton = document.querySelectorAll(".remove");
   // do stuff here
 }
 

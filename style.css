@@ -163,6 +163,7 @@ dialog[open] {
   box-shadow: rgba(0, 0, 0, 0.56) 0px 22px 70px 4px;
   gap: 16px;
   padding: 2rem;
+  overflow: hidden;
 }
 
 .close,
@@ -197,6 +198,10 @@ dialog > form > div {
   outline: none;
   border: 1px solid #c7383c;
   border-radius: 8px;
+}
+
+.close {
+  margin-top: 0.5em;
 }
 
 form > input {
