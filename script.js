@@ -7,6 +7,7 @@ const nameInput = document.querySelector("#name");
 const episodeInput = document.querySelector("#episodes");
 const watchStatus = document.getElementById("form-checkbox");
 let id = 0;
+const myAnimes = [];
 
 add.addEventListener("click", () => {
   dialog.showModal();
@@ -30,8 +31,6 @@ create.addEventListener("click", (e) => {
 closeModal.addEventListener("click", () => {
   dialog.close();
 });
-
-const myAnimes = [];
 
 function Anime(name, episodes, status) {
   this.name = name;
@@ -112,15 +111,9 @@ function displayAnime() {
   });
 
   watchButton.addEventListener("click", () => {
-    // let fetchId = [];
-    // fetchId = watchButton.value.split("c");
-
-    // console.log(myAnimes[length].id);
-
     if (watchButton.textContent === "Watched") {
       watchButton.textContent = "Skipped";
       for (let i = 0; i < myAnimes.length; i++) {
-        let index;
         if (myAnimes[i].id === watchButton.value) {
           return (myAnimes[i].status = false);
         }
@@ -128,7 +121,6 @@ function displayAnime() {
     } else {
       watchButton.textContent = "Watched";
       for (let i = 0; i < myAnimes.length; i++) {
-        let index;
         if (myAnimes[i].id === watchButton.value) {
           return (myAnimes[i].status = true);
         }
