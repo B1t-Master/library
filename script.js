@@ -119,12 +119,20 @@ function displayAnime() {
 
     if (watchButton.textContent === "Watched") {
       watchButton.textContent = "Skipped";
-      myAnimes[
-        myAnimes.indexOf(watchButton.value === myAnimes.id)
-      ].status = false;
+      for (let i = 0; i < myAnimes.length; i++) {
+        let index;
+        if (myAnimes[i].id === watchButton.value) {
+          return (myAnimes[i].status = false);
+        }
+      }
     } else {
       watchButton.textContent = "Watched";
-      myAnimes.indexOf(watchButton.value === myAnimes.id).status = true;
+      for (let i = 0; i < myAnimes.length; i++) {
+        let index;
+        if (myAnimes[i].id === watchButton.value) {
+          return (myAnimes[i].status = true);
+        }
+      }
     }
   });
 }
